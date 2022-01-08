@@ -35,11 +35,13 @@ body{
     padding-top:6%;
 }
 .fill-x::before{
+
     font-size: 50px;
     text-align: center;
     content: "\0058";
 }
 .fill-o::before{
+ 
     font-size: 50px;
     text-align: center;
     content: "\004F";
