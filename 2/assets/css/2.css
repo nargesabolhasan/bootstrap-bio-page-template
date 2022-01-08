@@ -1,0 +1,44 @@
+*,*::before,*::after{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: inherit;
+}
+body{
+    box-sizing: border-box;
+    background-color: rgb(224, 191, 255); 
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.circle{
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  border-right: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: rotate 2s linear infinite;
+  position: relative;
+}
+.circle2{
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-right: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: rotate 2s linear infinite;
+    
+}
+
+.circle p{
+    font-size: 30px;
+}
+@keyframes rotate{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); } 
+}
