@@ -18,27 +18,36 @@ body{
 .circle{
   border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  border-right: 16px solid #3498db;
   width: 120px;
   height: 120px;
-  animation: rotate 2s linear infinite;
   position: relative;
 }
 .circle2{
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-right: 16px solid #3498db;
     width: 120px;
     height: 120px;
-    animation: rotate 2s linear infinite;
-    
-}
+    animation:rotate 3s linear infinite;
+    position: absolute;
+    top: -16px;
+    left:-16px;
+  }
+  .circle2::before {
+    content: "Loding";
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: #3498db;
+    position: absolute;
+    display: block;
+    top: 15px;
+    left: 15px;
+  }
 
-.circle p{
-    font-size: 30px;
-}
 @keyframes rotate{
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); } 
+    0% { transform: rotate(0deg); border-top: 16px solid #3498db;opacity: 100%;}
+    25%{transform: rotate(0deg); border-right:16px solid #3498db;opacity: 75%;}
+    50%{transform: rotate(0deg); border-bottom:16px solid #3498db;opacity: 50%;}
+    75%{transform: rotate(0deg);border-left:16px solid #3498db; opacity: 75%;} 
+    100%{transform: rotate(0deg);border-top: 16px solid #3498db;opacity: 100%; } 
 }
