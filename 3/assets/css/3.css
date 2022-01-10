@@ -4,3 +4,6 @@
 .c-color{
     color: rgb(0, 153, 153);
 }
+.c-shadow{
+    box-shadow: 0px 6px gray;
+}
