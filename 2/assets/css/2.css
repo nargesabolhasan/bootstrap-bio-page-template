@@ -5,7 +5,7 @@
 }
 body{
     box-sizing: border-box;
-    background-color: rgb(224, 191, 255); 
+    background-color: rgb(29, 17, 41); 
 }
 .main {
     display: flex;
@@ -15,42 +15,51 @@ body{
     width: 100vw;
     height: 100vh;
 }
-.circle{
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   position: relative;
 }
-.circle2{
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation:rotate 3s linear infinite;
-    position: absolute;
-    top: -16px;
-    left:-16px;
-  }
-  .circle2::before {
-    content: "Loding";
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
-    color: #3498db;
-    position: absolute;
-    display: block;
-    top: 15px;
-    left: 15px;
-  }
+.spinner-box::after{
+content: "Loading";
+color:rgb(98, 205, 255) ;
+font-size: 30px;
+font-weight: 700;
+position:absolute;
 
-@keyframes rotate{
-    0% { transform: rotate(0deg); border-top: 16px solid #3498db;opacity: 100%;}
-    25%{transform: rotate(0deg); border-right:16px solid #3498db;opacity: 75%;}
-    50%{transform: rotate(0deg); border-bottom:16px solid #3498db;opacity: 50%;}
-    75%{transform: rotate(0deg);border-left:16px solid #3498db; opacity: 75%;} 
-    100%{transform: rotate(0deg);border-top: 16px solid #3498db;opacity: 100%; } 
 }
+.circle-border {
+  width:200px;
+  height:200px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(63,249,220);
+  background: linear-gradient(0deg, rgb(29, 17, 41) 33%, rgb(98, 205, 255) 100%);
+  animation: spin 3s linear 0s infinite;
+}
+
+.circle-core {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(29, 17, 41);
+  border-radius: 50%;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+  
 .lds-default {
     display: inline-block;
     position: relative;
@@ -61,7 +70,7 @@ body{
     position: absolute;
     width: 6px;
     height: 6px;
-    background: rgb(0, 0, 0);
+    background: rgb(98, 205, 255);
     border-radius: 50%;
     animation: lds-default 1.2s linear infinite;
   }
