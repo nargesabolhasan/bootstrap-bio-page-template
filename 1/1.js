@@ -1,13 +1,15 @@
+let board=document.getElementsByClassName("board")
+const boardArr=Array.from(board)
 const tile=document.getElementsByClassName("tile")
 const tileArr=Array.from(tile)
 let counter=0
 let xcount=0
 let xarr=[]
 let oarr=[]
-myfunc()
-function myfunc(){
+
+
 tileArr.map(input=>{
-input.addEventListener('click',e=>{
+input.addEventListener('click',mFunc=(e)=>{
         counter++
         if(counter%2==0){
             input.classList.add("fill-o")
@@ -20,7 +22,7 @@ input.addEventListener('click',e=>{
         
     },{once : true})
 })
-}
+
 function checkwinner(){
     const t0=document.getElementById("0")
     const t1=document.getElementById("1")
@@ -71,8 +73,6 @@ function checkwinner(){
 }
 
 function Whowinner(h1,h2,h3){
-     let board=document.getElementsByClassName("board")
-     const boardArr=Array.from(board)
      if (h1.classList.value==="tile fill-x"){
         boardArr.map(i=>{
             i.classList.add("win-x")
@@ -80,7 +80,10 @@ function Whowinner(h1,h2,h3){
         h1.classList.add("win-xx")
         h2.classList.add("win-xx")
         h3.classList.add("win-xx")
-        reset()
+        setTimeout(()=>{
+            reset(h1,h2,h3)
+        },20)
+        
       }else{
            boardArr.map(i=>{
                 i.classList.add("win-o")
@@ -88,21 +91,36 @@ function Whowinner(h1,h2,h3){
            h1.classList.add("win-oo")
            h2.classList.add("win-oo")
            h3.classList.add("win-oo")
-           reset()
+           setTimeout(()=>{
+               reset(h1,h2,h3)
+            },20)
 
           }
      
 }
-// function reset(){
-//       const div= document.getElementsByTagName("body")
-//       let divArr=Array.from(div)
-//       divArr.map(input=>{
-//           input.addEventListener('click',e=>{
-//                tileArr.map(i=>{
-//                     i.classList.remove("fill-x")
-//                     i.classList.remove("fill-o")
-//                   })
-//           })
-//      })       
-// }
-//  
+function reset(n1,n2,n3,removei){
+      const div= document.getElementsByTagName("body")
+      let divArr=Array.from(div)
+      divArr.map(input=>{
+          input.addEventListener('click',e=>{
+              input.removeEventListener('click',mFunc())
+               tileArr.map(removei=(i)=>{
+                    i.classList.remove("fill-x")
+                    i.classList.remove("fill-o")   
+                  })
+                boardArr.map(i=>{
+                    i.classList.remove("win-x")
+                    i.classList.remove("win-o")
+                 }) 
+                 n1.classList.remove("win-oo") 
+                 n1.classList.remove("win-xx")
+                 n2.classList.remove("win-oo") 
+                 n2.classList.remove("win-xx")  
+                 n3.classList.remove("win-oo") 
+                 n3.classList.remove("win-xx") 
+          
+
+
+          })
+     })       
+}
