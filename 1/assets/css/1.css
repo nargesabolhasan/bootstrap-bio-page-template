@@ -12,8 +12,8 @@ body{
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    height: 100vh;
-    width:100vw ; 
+    width:100vw ;
+    height: 100vh; 
 }
 .board{
     display: flex;
@@ -41,9 +41,25 @@ body{
     content: "\0058";
 }
 .fill-o::before{
- 
     font-size: 50px;
     text-align: center;
     content: "\004F";
 }
-
+.win-x::after { 
+    margin-left: 10px;
+    font-size: 50px;
+    text-align: center;
+    content: "X wins!";  
+}
+.win-xx {
+background-color: chartreuse;
+}
+.win-o::after { 
+    margin-left: 10px;
+    font-size: 50px;
+    text-align: center;
+    content: "O wins!";  
+}
+.win-oo {
+background-color: chartreuse;
+}

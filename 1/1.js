@@ -1,11 +1,12 @@
-
 const tile=document.getElementsByClassName("tile")
 const tileArr=Array.from(tile)
 let counter=0
 let xcount=0
 let xarr=[]
 let oarr=[]
-tileArr.map((input,i)=>{
+myfunc()
+function myfunc(){
+tileArr.map(input=>{
 input.addEventListener('click',e=>{
         counter++
         if(counter%2==0){
@@ -19,7 +20,7 @@ input.addEventListener('click',e=>{
         
     },{once : true})
 })
-
+}
 function checkwinner(){
     const t0=document.getElementById("0")
     const t1=document.getElementById("1")
@@ -70,10 +71,38 @@ function checkwinner(){
 }
 
 function Whowinner(h1,h2,h3){
- if (h1.classList.value==="tile fill-x"){
-      h1.classList.add("win-x")
-      h2.classList.add("win-x")
-      h3.classList.add("win-x")
- }
+     let board=document.getElementsByClassName("board")
+     const boardArr=Array.from(board)
+     if (h1.classList.value==="tile fill-x"){
+        boardArr.map(i=>{
+            i.classList.add("win-x")
+         })
+        h1.classList.add("win-xx")
+        h2.classList.add("win-xx")
+        h3.classList.add("win-xx")
+        reset()
+      }else{
+           boardArr.map(i=>{
+                i.classList.add("win-o")
+            })
+           h1.classList.add("win-oo")
+           h2.classList.add("win-oo")
+           h3.classList.add("win-oo")
+           reset()
+
+          }
      
 }
+// function reset(){
+//       const div= document.getElementsByTagName("body")
+//       let divArr=Array.from(div)
+//       divArr.map(input=>{
+//           input.addEventListener('click',e=>{
+//                tileArr.map(i=>{
+//                     i.classList.remove("fill-x")
+//                     i.classList.remove("fill-o")
+//                   })
+//           })
+//      })       
+// }
+//  
